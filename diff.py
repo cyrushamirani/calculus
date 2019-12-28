@@ -66,15 +66,3 @@ class Function:
             result += self.evaluate(a, var) * step
             a += step
         return result
-
-new_func = Function('9x^3 + 2x + 4 + 40x^3')
-print('Function:', new_func.func)
-
-eval_result = new_func.evaluate(2, 'x')
-print('Eval Result:', eval_result)
-
-diff_result = new_func.differentiate(2, 'x', 0.0001)
-print('Diff Result:', diff_result)
-
-inte_result = new_func.integrate(0, 1, 'x', 0.0001)
-print('Integrate Result:', inte_result)
