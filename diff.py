@@ -1,8 +1,8 @@
 from math import e, pi, sin, cos
 from operator import add, sub, mul
 #Enabling python3 HTML
-import cgitb 
-cgitb.enable()
+#import cgitb 
+#cgitb.enable()
 
 def div(a, b):
     return a / b
@@ -58,7 +58,7 @@ class Function:
             
     # Differentiate function at a point val with respect to a certain variable var. 
     def differentiate(self, val, var, step):
-        return (self.evaluate(val + (1 * step), var) - self.evaluate(val, var)) / step
+        return round((self.evaluate(val + (1 * step), var) - self.evaluate(val, var)) / step, 3)
 
     # Riemann approximation of the integral of a given function across a given bound a to b with step size step.
     def integrate(self, a, b, var, step):
@@ -66,4 +66,4 @@ class Function:
         while a < b:
             result += self.evaluate(a, var) * step
             a += step
-        return result
+        return round(result, 3)
