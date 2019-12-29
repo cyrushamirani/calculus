@@ -1,13 +1,14 @@
 from math import e, pi, sin, cos
 from operator import add, sub, mul
+#Enabling python3 HTML
+import cgitb 
+cgitb.enable()
 
 def div(a, b):
     return a / b
 
 #for parsing the function passed in as a string
-number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 operator = {'+': add, '-': sub, '*': mul, '/': div}
-
 
 class Function:
     #Initialize a given function.
@@ -27,20 +28,20 @@ class Function:
             except:
                 term = copy
             try:
-                term = int(term)
+                term = float(term)
             #exception handles if term is something other than an integer
             except ValueError:
                 if term in operator:
                     term = operator[term]
                 else:
                     coefficient = term[:term.index(var)]
-                    #Checking to see if there is an exponent.
+                    #Checking to see if there is an exponent. If not, uses default value of 1.
                     try:
                         if term[term.index(var) + 1 : term.index(var) + 2] == '^':
-                            exponent = int(term[term.index(var) + 2:])
+                            exponent = float(term[term.index(var) + 2:])
                     finally:  
                         if coefficient:
-                            term = mul(int(coefficient), pow(val, exponent))
+                            term = mul(float(coefficient), pow(val, exponent))
                         else:
                             term = val
             expression += [term]
