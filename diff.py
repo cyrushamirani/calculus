@@ -67,7 +67,7 @@ class Function:
             result += self.evaluate(a, var) * step
             a += step
         return round(result, 3)
-        
+#debug
 new_func = Function('2x^2 + 4x + 10x^3')
 print('Function:', new_func.func)
 
